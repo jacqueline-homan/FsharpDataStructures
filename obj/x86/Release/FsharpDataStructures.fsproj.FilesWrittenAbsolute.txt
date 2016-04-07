@@ -1,0 +1,6 @@
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/obj/x86/Release/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/bin/Release/FsharpDataStructures.exe
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/obj/x86/Release/FsharpDataStructures.exe
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/bin/Release/DateTimeProvider.dll
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/bin/Release/DateTimeExtensions.dll
+/home/jacque/Projects/F-sharp/FsharpDataStructures/FsharpDataStructures/bin/Release/ExtendType.OfDateTime.dll

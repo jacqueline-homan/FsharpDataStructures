@@ -25,6 +25,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="FSharp.Core" />
+    <Reference Include="DateTimeProvider">
+      <HintPath>..\packages\Nepente.DateTimeProvider.0.0.1\lib\DateTimeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="DateTimeExtensions">
+      <HintPath>..\packages\DateTimeExtensions.3.9.0.13\lib\net35\DateTimeExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtendType.OfDateTime">
+      <HintPath>..\packages\ExtendType.OfDateTime.1.2.5\lib\net40\ExtendType.OfDateTime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
@@ -35,5 +44,6 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
   <ItemGroup>
     <None Include="Scripts.fsx" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

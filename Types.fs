@@ -8,7 +8,9 @@ module Types =
             Number: string
             Name: string
             Balance: double
-        } 
+        }
+
+    //type 
 
 
 
