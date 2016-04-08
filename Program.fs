@@ -105,7 +105,7 @@ let capitalizeHotdogs =
     hotdogs
     |> Array.map(fun hotdog -> hotdog.ToUpper())
     |> Array.iter(printfn "%s")
-
+//creating a function to capitalize all the elements in a string array
 let initCap str =
     if String.IsNullOrEmpty str then
         str
@@ -116,6 +116,17 @@ let initCapHotdogs =
     hotdogs
     |> Array.map(fun hotdog -> initCap hotdog)
     |> Array.iter(printfn "%s")
+
+//Using Array.iter, Seq.iter or List.iter
+let devs =
+    [("Evan", 41, "Haskell")
+     ("Jacque", 48, "F#")
+     ("Mylo", 25, "JavaScript")]
+let namesofdevs =
+    devs
+    |> Seq.map(fun(name, age, language) -> name)
+    |> Seq.filter(fun name -> name.Contains "a")
+    |> Seq.iter(printfn "%s")
 
 //Using Array.mapi to find the consonants
 let findConsonants (s:string) =
@@ -152,6 +163,7 @@ let bigRedButtonDays year =
     |> Array.filter(fun d -> isWeekend d)
 printfn "Big Red Button days: %A" (bigRedButtonDays 2016)
 
+//
 
 //Option data types: Where some results may fail
 let getRequests() =
@@ -159,10 +171,44 @@ let getRequests() =
         [|
             "https://github.com"
             "https://pluralsight.com"
-            "htto://99.99.99.99/doesntexist"
+            "https://fsharpforfunandprofit.com/posts/elevated-world/"
+            "http://99.99.99.99/doesntexist"
         |]
     use wc = new WebClient()
+    //and use Array.map to attempt to get the content
+    requests
+    |> Array.map(fun url ->
+        try
+            wc.DownloadString(url) |> Some
+        with
+        | _ -> None)
+    |> Array.filter(fun s -> s.IsSome)
+    |> Array.map(fun s -> s.Value)
+    |> Array.iter(fun s -> printfn "Content: %s" (s.Trim().Substring(0, 100)))
 
+// Using Array.choose instead of a map and filter operation
+let getRequests2() =
+    let requests =
+        [|
+            "https://github.com"
+            "https://pluralsight.com"
+            "https://fsharpforfunandprofit.com/posts/elevated-world/"
+            "http://99.99.99.99/doesntexist"
+        |]
+    use wc = new WebClient()
+    //and use Array.map to attempt to get the content
+    requests
+    |> Array.choose(fun url ->
+        try
+            wc.DownloadString(url) |> Some
+        with
+        | _ -> None)
+    
+    |> Array.iter(fun s -> printfn "Content: %s" (s.Trim().Substring(0, 100)))
+
+
+getRequests() //Here we call the first function for grabbing web requests
+getRequests2() //Here we call the second one w/ Array.choose
 
 [<EntryPoint>]
 let main argv = 
